@@ -117,7 +117,7 @@ namespace EAGamesLauncher
 
             var shell = Activator.CreateInstance(shellAppType);
 
-            var val = (Folder)shellAppType.InvokeMember("NameSpace", System.Reflection.BindingFlags.InvokeMethod, null, shell, new[] { path }, CultureInfo.CurrentCulture);
+            var val = (Folder)shellAppType.InvokeMember("NameSpace", System.Reflection.BindingFlags.InvokeMethod, null, shell, new[] { path });
 
             Marshal.ReleaseComObject(shell);
 
@@ -163,7 +163,7 @@ namespace EAGamesLauncher
         {
             foreach (FolderItemVerb fiVerb in item.Verbs())
             {
-                if (!fiVerb.Name.ToUpper(CultureInfo.CurrentCulture).Contains(verb.ToUpper(CultureInfo.CurrentCulture))) continue;
+                if (!fiVerb.Name.ToUpper().Contains(verb.ToUpper())) continue;
 
                 fiVerb.DoIt();
 
@@ -177,9 +177,11 @@ namespace EAGamesLauncher
         {
             if (!PropertiesHasKey("eaGamesPath")) return "";
 
-            var savedPath = Properties.Settings.Default["eaGamesPath"].ToString();
+            _eaGamesPath = Properties.Settings.Default["eaGamesPath"].ToString();
 
-            return string.IsNullOrWhiteSpace(savedPath) ? "" : savedPath;
+            if (string.IsNullOrWhiteSpace(_eaGamesPath)) ChooseModsRootDirectory();
+
+            return _eaGamesPath;
         }
         #endregion
 
@@ -274,7 +276,7 @@ namespace EAGamesLauncher
         #region Get mod directory files
         private static IEnumerable<string> GetGameFiles(string path)
         {
-            return Directory.GetFiles(path).ToList().ConvertAll(d => d.ToLower(CultureInfo.CurrentCulture));
+            return Directory.GetFiles(path).ToList().ConvertAll(d => d.ToLower());
         }
         #endregion
         
@@ -292,9 +294,9 @@ namespace EAGamesLauncher
                 {
                     var icoFile = GetGameFiles(folder).Any(f =>
                                               !f.Contains("generals.ico") && !f.Contains("generalszh.ico")
-                                              && f.EndsWith("ico", StringComparison.CurrentCulture)) == false ? $@"{folder}\generalszh.ico" : Directory.GetFiles(folder).First(f =>
+                                              && f.EndsWith("ico")) == false ? $@"{folder}\generalszh.ico" : Directory.GetFiles(folder).First(f =>
                                 !f.Contains("generals.ico") && !f.Contains("generalszh.ico")
-                                && f.EndsWith("ico", StringComparison.CurrentCulture));
+                                && f.EndsWith("ico"));
 
                     using (var img = Image.FromFile(icoFile))
                     {
@@ -321,19 +323,19 @@ namespace EAGamesLauncher
             var files = GetGameFiles(path).ToList();
 
             // We have generals.exe, ofs_start, launcher
-            if (files.Any(f => f.EndsWith("bat", StringComparison.CurrentCulture) && f.Contains("start")))
+            if (files.Any(f => f.EndsWith("bat") && f.Contains("start")))
             {
-                executable = files.Find(f => f.EndsWith("bat", StringComparison.CurrentCulture) && f.Contains("start"));
+                executable = files.Find(f => f.EndsWith("bat") && f.Contains("start"));
                 return !string.IsNullOrEmpty(executable) ? executable : "";
             }
-            if (files.Any(f => f.EndsWith("exe", StringComparison.CurrentCulture) && f.Contains("launcher")))
+            if (files.Any(f => f.EndsWith("exe") && f.Contains("launcher")))
             {
-                executable = files.Find(f => f.EndsWith("exe", StringComparison.CurrentCulture) && f.Contains("launcher"));
+                executable = files.Find(f => f.EndsWith("exe") && f.Contains("launcher"));
                 return !string.IsNullOrEmpty(executable) ? executable : "";
             }
-            if (!files.Any(f => f.EndsWith("exe", StringComparison.CurrentCulture) && f.Contains("generals"))) return executable;
+            if (!files.Any(f => f.EndsWith("exe") && f.Contains("generals"))) return executable;
             {
-                executable = files.Find(f => f.EndsWith("exe", StringComparison.CurrentCulture) && f.Contains("generals"));
+                executable = files.Find(f => f.EndsWith("exe") && f.Contains("generals"));
                 return !string.IsNullOrEmpty(executable) ? executable : "";
             }
         }
@@ -357,7 +359,7 @@ namespace EAGamesLauncher
         #region Restore deleted mods
         private void UndeleteUnusedGames(IEnumerable<string> installedGames, string gameFolder)
         {
-            var ugames = installedGames.Where(g => !g.EndsWith(gameFolder, StringComparison.CurrentCulture) && !g.EndsWith("Command & Conquer(tm) Generals Zero Hour", StringComparison.CurrentCulture)).ToList();
+            var ugames = installedGames.Where(g => !g.EndsWith(gameFolder) && !g.EndsWith("Command & Conquer(tm) Generals Zero Hour")).ToList();
 
             foreach (var ugame in ugames)
             {
@@ -388,7 +390,7 @@ namespace EAGamesLauncher
             {
                 Process process;
 
-                if (executable.EndsWith("bat", StringComparison.CurrentCulture))
+                if (executable.EndsWith("bat"))
                 {
                     process = new Process
                     {
