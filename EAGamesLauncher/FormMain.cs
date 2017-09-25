@@ -52,11 +52,19 @@ namespace EAGamesLauncher
         #region Mods root folder selection
         private void BtnChooseRootFolder_Click(object sender, EventArgs e)
         {
-            if (!ChooseModsRootDirectory()) return;
+            try
+            {
+                if (!ChooseModsRootDirectory()) return;
 
-            _installedGames = GetGames(_eaGamesPath);
+                _installedGames = GetGames(_eaGamesPath);
 
-            LoadInstalledMods(_installedGames);
+                LoadInstalledMods(_installedGames);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Please select a valid EA Mods directory.");
+            }
+            
         }
         #endregion
 
@@ -216,6 +224,10 @@ namespace EAGamesLauncher
             try
             {
                 return Directory.GetDirectories(folderPath).Where(d => d.Contains("Generals Zero Hour")).ToList();
+            }
+            catch (ArgumentException)
+            {
+                MessageBox.Show("Please select a valid EA mods directory.");
             }
             catch (DirectoryNotFoundException)
             {
