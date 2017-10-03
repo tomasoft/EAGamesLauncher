@@ -37,18 +37,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.lstInstalledGames = new System.Windows.Forms.ListView();
+            this.btnSave = new System.Windows.Forms.Button();
             this.btnChooseModLocation = new System.Windows.Forms.Button();
             this.lblCustomModLocation = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.cmbResolutions = new System.Windows.Forms.ComboBox();
+            this.lblResolutions = new System.Windows.Forms.Label();
             this.chkQuickstart = new System.Windows.Forms.CheckBox();
             this.lblQuickstart = new System.Windows.Forms.Label();
             this.chkWindowMode = new System.Windows.Forms.CheckBox();
             this.lblWindowMode = new System.Windows.Forms.Label();
             this.launcherNotify = new System.Windows.Forms.NotifyIcon(this.components);
             this.modsmenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.btnSave = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -145,8 +145,8 @@
             this.splitContainer2.Panel2.Controls.Add(this.btnChooseModLocation);
             this.splitContainer2.Panel2.Controls.Add(this.lblCustomModLocation);
             this.splitContainer2.Panel2.Controls.Add(this.label3);
-            this.splitContainer2.Panel2.Controls.Add(this.comboBox1);
-            this.splitContainer2.Panel2.Controls.Add(this.label2);
+            this.splitContainer2.Panel2.Controls.Add(this.cmbResolutions);
+            this.splitContainer2.Panel2.Controls.Add(this.lblResolutions);
             this.splitContainer2.Panel2.Controls.Add(this.chkQuickstart);
             this.splitContainer2.Panel2.Controls.Add(this.lblQuickstart);
             this.splitContainer2.Panel2.Controls.Add(this.chkWindowMode);
@@ -174,6 +174,15 @@
             this.lstInstalledGames.UseCompatibleStateImageBehavior = false;
             this.lstInstalledGames.View = System.Windows.Forms.View.List;
             // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(795, 8);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 21);
+            this.btnSave.TabIndex = 10;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            // 
             // btnChooseModLocation
             // 
             this.btnChooseModLocation.Location = new System.Drawing.Point(757, 8);
@@ -186,35 +195,36 @@
             // lblCustomModLocation
             // 
             this.lblCustomModLocation.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblCustomModLocation.Location = new System.Drawing.Point(630, 8);
+            this.lblCustomModLocation.Location = new System.Drawing.Point(645, 8);
             this.lblCustomModLocation.Name = "lblCustomModLocation";
-            this.lblCustomModLocation.Size = new System.Drawing.Size(121, 20);
+            this.lblCustomModLocation.Size = new System.Drawing.Size(106, 20);
             this.lblCustomModLocation.TabIndex = 7;
             this.lblCustomModLocation.Text = "...";
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(516, 11);
+            this.label3.Location = new System.Drawing.Point(523, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(127, 23);
+            this.label3.Size = new System.Drawing.Size(116, 23);
             this.label3.TabIndex = 6;
             this.label3.Text = "Custom Mod Location:";
             // 
-            // comboBox1
+            // cmbResolutions
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(389, 8);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 5;
+            this.cmbResolutions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbResolutions.FormattingEnabled = true;
+            this.cmbResolutions.Location = new System.Drawing.Point(396, 8);
+            this.cmbResolutions.Name = "cmbResolutions";
+            this.cmbResolutions.Size = new System.Drawing.Size(121, 21);
+            this.cmbResolutions.TabIndex = 5;
             // 
-            // label2
+            // lblResolutions
             // 
-            this.label2.Location = new System.Drawing.Point(283, 11);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(127, 23);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Window Resolution:";
+            this.lblResolutions.Location = new System.Drawing.Point(283, 11);
+            this.lblResolutions.Name = "lblResolutions";
+            this.lblResolutions.Size = new System.Drawing.Size(107, 23);
+            this.lblResolutions.TabIndex = 4;
+            this.lblResolutions.Text = "Window Resolution:";
             // 
             // chkQuickstart
             // 
@@ -266,15 +276,6 @@
             this.modsmenuStrip.Size = new System.Drawing.Size(36, 4);
             this.modsmenuStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.ModsmenuStrip_ItemClicked);
             // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(795, 8);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 10;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -318,12 +319,12 @@
         private System.Windows.Forms.ContextMenuStrip modsmenuStrip;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.ListView lstInstalledGames;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblResolutions;
         private System.Windows.Forms.CheckBox chkQuickstart;
         private System.Windows.Forms.Label lblQuickstart;
         private System.Windows.Forms.CheckBox chkWindowMode;
         private System.Windows.Forms.Label lblWindowMode;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbResolutions;
         private System.Windows.Forms.Button btnChooseModLocation;
         private System.Windows.Forms.Label lblCustomModLocation;
         private System.Windows.Forms.Label label3;

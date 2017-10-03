@@ -16,6 +16,85 @@ namespace EAGamesLauncher
 {
     public partial class FormMain : Form
     {
+
+        #region PInvoke
+        [DllImport("user32.dll")]
+        public static extern bool EnumDisplaySettings(string deviceName, int modeNum, ref Devmode devMode);
+        #endregion
+
+        #region Screen Resolutions
+        [StructLayout(LayoutKind.Sequential)]
+        public struct Devmode
+        {
+            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 0x20)]
+            public string dmDeviceName;
+            public short dmSpecVersion;
+            public short dmDriverVersion;
+            public short dmSize;
+            public short dmDriverExtra;
+            public int dmFields;
+            public int dmPositionX;
+            public int dmPositionY;
+            public ScreenOrientation dmDisplayOrientation;
+            public int dmDisplayFixedOutput;
+            public short dmColor;
+            public short dmDuplex;
+            public short dmYResolution;
+            public short dmTTOption;
+            public short dmCollate;
+            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 0x20)]
+            public string dmFormName;
+            public short dmLogPixels;
+            public int dmBitsPerPel;
+            public int dmPelsWidth;
+            public int dmPelsHeight;
+            public int dmDisplayFlags;
+            public int dmDisplayFrequency;
+            public int dmICMMethod;
+            public int dmICMIntent;
+            public int dmMediaType;
+            public int dmDitherType;
+            public int dmReserved1;
+            public int dmReserved2;
+            public int dmPanningWidth;
+            public int dmPanningHeight;
+        }
+
+        public class ScreenResolution
+        {
+            public int Height { get; set; }
+            public int Width { get; set; }
+        }
+        #endregion
+
+        #region Get Supported Screen Resolutions
+        /// <summary>
+        /// Gets all supported screen resolutions.
+        /// </summary>
+        /// <returns>An IEnumerable of supported resolutions.</returns>
+        private static IEnumerable<ScreenResolution> GetSupportedResolutions()
+        {
+            try
+            {
+                var vDevMode = new Devmode();
+                var i = 0;
+                var resolutions = new List<ScreenResolution>();
+                while (EnumDisplaySettings(null, i, ref vDevMode))
+                {
+                    resolutions.Add(new ScreenResolution() { Height = vDevMode.dmPelsHeight, Width = vDevMode.dmPelsWidth });
+                    i++;
+                }
+
+                return resolutions.Select(r => new { r.Height, r.Width }).Distinct().ToList().Select(r => new ScreenResolution() { Height = r.Height, Width = r.Width }).OrderBy(r => r.Width);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        #endregion
+
         #region Private variables
         private readonly Dictionary<string, string> _games;
         private IEnumerable<string> _installedGames;
@@ -41,6 +120,14 @@ namespace EAGamesLauncher
         #region Form Load
         private void Form1_Load(object sender, EventArgs e)
         {
+            // Load supported screen resolutions.
+            var resolutions = GetSupportedResolutions();
+
+            // Add them to resolutions combo.
+            foreach (var screenResolution in resolutions)
+                cmbResolutions.Items.Add($"{screenResolution.Width}*{screenResolution.Height}");
+            
+
             _eaGamesPath = LoadSavedModsRootDirectory();
 
             _installedGames = GetGames(_eaGamesPath);
