@@ -155,7 +155,7 @@ namespace EAGamesLauncher
         }
         #endregion
 
-        #region ReselectModsRootDirectory
+        #region Reselect Mods Root Directory
         private bool ChooseModsRootDirectory()
         {
             if (eaGamesFolder.ShowDialog() != DialogResult.OK) return false;
@@ -167,11 +167,11 @@ namespace EAGamesLauncher
             Properties.Settings.Default.Save();
 
             return true;
-        } 
+        }
         #endregion
 
         #region Game Selection
-        private void LstInstalledGames_DoubleClick(object sender, EventArgs e)
+        private void lstInstalledGames_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Get game folder.
             var key = lstInstalledGames.SelectedItems[0].Text;
@@ -266,7 +266,7 @@ namespace EAGamesLauncher
         }
         #endregion
 
-        #region LoadSavedModsRootDirectory
+        #region Load Saved Mods Root Directory
         private string LoadSavedModsRootDirectory()
         {
             if (!PropertiesHasKey("eaGamesPath")) return "";
@@ -279,7 +279,7 @@ namespace EAGamesLauncher
         }
         #endregion
 
-        #region ResetModsDirectory
+        #region Reset Mods Directory
         /// <summary>
         /// Resets currently selected mods directory.
         /// </summary>
@@ -608,7 +608,7 @@ namespace EAGamesLauncher
             launcherNotify.Visible = false;
 
             launcherNotify.Dispose();
-        } 
+        }
         #endregion
     }
 }

@@ -168,6 +168,7 @@
             this.lstInstalledGames.TileSize = new System.Drawing.Size(32, 32);
             this.lstInstalledGames.UseCompatibleStateImageBehavior = false;
             this.lstInstalledGames.View = System.Windows.Forms.View.List;
+            this.lstInstalledGames.SelectedIndexChanged += new System.EventHandler(this.lstInstalledGames_SelectedIndexChanged);
             // 
             // btnSave
             // 
