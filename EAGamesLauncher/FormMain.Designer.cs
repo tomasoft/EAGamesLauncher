@@ -44,9 +44,7 @@
             this.cmbResolutions = new System.Windows.Forms.ComboBox();
             this.lblResolutions = new System.Windows.Forms.Label();
             this.chkQuickstart = new System.Windows.Forms.CheckBox();
-            this.lblQuickstart = new System.Windows.Forms.Label();
             this.chkWindowMode = new System.Windows.Forms.CheckBox();
-            this.lblWindowMode = new System.Windows.Forms.Label();
             this.launcherNotify = new System.Windows.Forms.NotifyIcon(this.components);
             this.modsmenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -148,9 +146,7 @@
             this.splitContainer2.Panel2.Controls.Add(this.cmbResolutions);
             this.splitContainer2.Panel2.Controls.Add(this.lblResolutions);
             this.splitContainer2.Panel2.Controls.Add(this.chkQuickstart);
-            this.splitContainer2.Panel2.Controls.Add(this.lblQuickstart);
             this.splitContainer2.Panel2.Controls.Add(this.chkWindowMode);
-            this.splitContainer2.Panel2.Controls.Add(this.lblWindowMode);
             this.splitContainer2.Size = new System.Drawing.Size(885, 276);
             this.splitContainer2.SplitterDistance = 237;
             this.splitContainer2.SplitterWidth = 1;
@@ -160,7 +156,6 @@
             // 
             this.lstInstalledGames.Activation = System.Windows.Forms.ItemActivation.OneClick;
             this.lstInstalledGames.BackgroundImage = global::EAGamesLauncher.Properties.Resources.bg6;
-            this.lstInstalledGames.BackgroundImageTiled = true;
             this.lstInstalledGames.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lstInstalledGames.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstInstalledGames.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
@@ -176,7 +171,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(795, 8);
+            this.btnSave.Location = new System.Drawing.Point(798, 7);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 21);
             this.btnSave.TabIndex = 10;
@@ -185,27 +180,29 @@
             // 
             // btnChooseModLocation
             // 
-            this.btnChooseModLocation.Location = new System.Drawing.Point(757, 8);
+            this.btnChooseModLocation.Location = new System.Drawing.Point(745, 7);
             this.btnChooseModLocation.Name = "btnChooseModLocation";
             this.btnChooseModLocation.Size = new System.Drawing.Size(32, 21);
             this.btnChooseModLocation.TabIndex = 8;
             this.btnChooseModLocation.Text = "...";
+            this.btnChooseModLocation.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnChooseModLocation.UseVisualStyleBackColor = true;
             // 
             // lblCustomModLocation
             // 
             this.lblCustomModLocation.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblCustomModLocation.Location = new System.Drawing.Point(645, 8);
+            this.lblCustomModLocation.Location = new System.Drawing.Point(633, 7);
             this.lblCustomModLocation.Name = "lblCustomModLocation";
-            this.lblCustomModLocation.Size = new System.Drawing.Size(106, 20);
+            this.lblCustomModLocation.Size = new System.Drawing.Size(106, 21);
             this.lblCustomModLocation.TabIndex = 7;
             this.lblCustomModLocation.Text = "...";
+            this.lblCustomModLocation.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(523, 9);
+            this.label3.Location = new System.Drawing.Point(511, 11);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(116, 23);
+            this.label3.Size = new System.Drawing.Size(116, 21);
             this.label3.TabIndex = 6;
             this.label3.Text = "Custom Mod Location:";
             // 
@@ -213,52 +210,40 @@
             // 
             this.cmbResolutions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbResolutions.FormattingEnabled = true;
-            this.cmbResolutions.Location = new System.Drawing.Point(396, 8);
+            this.cmbResolutions.Location = new System.Drawing.Point(384, 8);
             this.cmbResolutions.Name = "cmbResolutions";
             this.cmbResolutions.Size = new System.Drawing.Size(121, 21);
             this.cmbResolutions.TabIndex = 5;
             // 
             // lblResolutions
             // 
-            this.lblResolutions.Location = new System.Drawing.Point(283, 11);
+            this.lblResolutions.Location = new System.Drawing.Point(271, 11);
             this.lblResolutions.Name = "lblResolutions";
-            this.lblResolutions.Size = new System.Drawing.Size(107, 23);
+            this.lblResolutions.Size = new System.Drawing.Size(107, 21);
             this.lblResolutions.TabIndex = 4;
             this.lblResolutions.Text = "Window Resolution:";
             // 
             // chkQuickstart
             // 
             this.chkQuickstart.AutoSize = true;
-            this.chkQuickstart.Location = new System.Drawing.Point(262, 11);
+            this.chkQuickstart.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chkQuickstart.Location = new System.Drawing.Point(150, 10);
             this.chkQuickstart.Name = "chkQuickstart";
-            this.chkQuickstart.Size = new System.Drawing.Size(15, 14);
+            this.chkQuickstart.Size = new System.Drawing.Size(115, 17);
             this.chkQuickstart.TabIndex = 3;
+            this.chkQuickstart.Text = "Quick Start Mode?";
             this.chkQuickstart.UseVisualStyleBackColor = true;
-            // 
-            // lblQuickstart
-            // 
-            this.lblQuickstart.Location = new System.Drawing.Point(158, 11);
-            this.lblQuickstart.Name = "lblQuickstart";
-            this.lblQuickstart.Size = new System.Drawing.Size(98, 23);
-            this.lblQuickstart.TabIndex = 2;
-            this.lblQuickstart.Text = "Quickstart Mode?";
             // 
             // chkWindowMode
             // 
             this.chkWindowMode.AutoSize = true;
-            this.chkWindowMode.Location = new System.Drawing.Point(137, 11);
+            this.chkWindowMode.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chkWindowMode.Location = new System.Drawing.Point(8, 10);
             this.chkWindowMode.Name = "chkWindowMode";
-            this.chkWindowMode.Size = new System.Drawing.Size(15, 14);
+            this.chkWindowMode.Size = new System.Drawing.Size(136, 17);
             this.chkWindowMode.TabIndex = 1;
+            this.chkWindowMode.Text = "Run In Window Mode?";
             this.chkWindowMode.UseVisualStyleBackColor = true;
-            // 
-            // lblWindowMode
-            // 
-            this.lblWindowMode.Location = new System.Drawing.Point(12, 11);
-            this.lblWindowMode.Name = "lblWindowMode";
-            this.lblWindowMode.Size = new System.Drawing.Size(119, 23);
-            this.lblWindowMode.TabIndex = 0;
-            this.lblWindowMode.Text = "Run in Window Mode?";
             // 
             // launcherNotify
             // 
@@ -321,9 +306,7 @@
         private System.Windows.Forms.ListView lstInstalledGames;
         private System.Windows.Forms.Label lblResolutions;
         private System.Windows.Forms.CheckBox chkQuickstart;
-        private System.Windows.Forms.Label lblQuickstart;
         private System.Windows.Forms.CheckBox chkWindowMode;
-        private System.Windows.Forms.Label lblWindowMode;
         private System.Windows.Forms.ComboBox cmbResolutions;
         private System.Windows.Forms.Button btnChooseModLocation;
         private System.Windows.Forms.Label lblCustomModLocation;
