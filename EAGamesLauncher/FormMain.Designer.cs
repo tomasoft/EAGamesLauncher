@@ -37,7 +37,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.lstInstalledGames = new System.Windows.Forms.ListView();
-            this.btnSave = new System.Windows.Forms.Button();
             this.btnChooseModLocation = new System.Windows.Forms.Button();
             this.lblCustomModLocation = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -88,7 +87,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(885, 313);
+            this.splitContainer1.Size = new System.Drawing.Size(795, 313);
             this.splitContainer1.SplitterDistance = 36;
             this.splitContainer1.SplitterWidth = 1;
             this.splitContainer1.TabIndex = 4;
@@ -99,14 +98,14 @@
             this.txtEaRootFolder.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEaRootFolder.Location = new System.Drawing.Point(196, 7);
             this.txtEaRootFolder.Name = "txtEaRootFolder";
-            this.txtEaRootFolder.Size = new System.Drawing.Size(628, 23);
+            this.txtEaRootFolder.Size = new System.Drawing.Size(538, 23);
             this.txtEaRootFolder.TabIndex = 6;
             this.txtEaRootFolder.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnChooseRootFolder
             // 
             this.btnChooseRootFolder.Font = new System.Drawing.Font("Arial Black", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChooseRootFolder.Location = new System.Drawing.Point(830, 6);
+            this.btnChooseRootFolder.Location = new System.Drawing.Point(740, 7);
             this.btnChooseRootFolder.Name = "btnChooseRootFolder";
             this.btnChooseRootFolder.Size = new System.Drawing.Size(43, 23);
             this.btnChooseRootFolder.TabIndex = 5;
@@ -139,7 +138,6 @@
             // 
             // splitContainer2.Panel2
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.btnSave);
             this.splitContainer2.Panel2.Controls.Add(this.btnChooseModLocation);
             this.splitContainer2.Panel2.Controls.Add(this.lblCustomModLocation);
             this.splitContainer2.Panel2.Controls.Add(this.label3);
@@ -147,7 +145,7 @@
             this.splitContainer2.Panel2.Controls.Add(this.lblResolutions);
             this.splitContainer2.Panel2.Controls.Add(this.chkQuickstart);
             this.splitContainer2.Panel2.Controls.Add(this.chkWindowMode);
-            this.splitContainer2.Size = new System.Drawing.Size(885, 276);
+            this.splitContainer2.Size = new System.Drawing.Size(795, 276);
             this.splitContainer2.SplitterDistance = 237;
             this.splitContainer2.SplitterWidth = 1;
             this.splitContainer2.TabIndex = 0;
@@ -162,7 +160,7 @@
             this.lstInstalledGames.Location = new System.Drawing.Point(0, 0);
             this.lstInstalledGames.MultiSelect = false;
             this.lstInstalledGames.Name = "lstInstalledGames";
-            this.lstInstalledGames.Size = new System.Drawing.Size(885, 237);
+            this.lstInstalledGames.Size = new System.Drawing.Size(795, 237);
             this.lstInstalledGames.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.lstInstalledGames.TabIndex = 5;
             this.lstInstalledGames.TileSize = new System.Drawing.Size(32, 32);
@@ -170,18 +168,9 @@
             this.lstInstalledGames.View = System.Windows.Forms.View.List;
             this.lstInstalledGames.SelectedIndexChanged += new System.EventHandler(this.lstInstalledGames_SelectedIndexChanged);
             // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(798, 7);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 21);
-            this.btnSave.TabIndex = 10;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            // 
             // btnChooseModLocation
             // 
-            this.btnChooseModLocation.Location = new System.Drawing.Point(745, 7);
+            this.btnChooseModLocation.Location = new System.Drawing.Point(751, 8);
             this.btnChooseModLocation.Name = "btnChooseModLocation";
             this.btnChooseModLocation.Size = new System.Drawing.Size(32, 21);
             this.btnChooseModLocation.TabIndex = 8;
@@ -194,7 +183,7 @@
             this.lblCustomModLocation.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblCustomModLocation.Location = new System.Drawing.Point(633, 7);
             this.lblCustomModLocation.Name = "lblCustomModLocation";
-            this.lblCustomModLocation.Size = new System.Drawing.Size(106, 21);
+            this.lblCustomModLocation.Size = new System.Drawing.Size(112, 21);
             this.lblCustomModLocation.TabIndex = 7;
             this.lblCustomModLocation.Text = "...";
             this.lblCustomModLocation.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -266,7 +255,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(885, 313);
+            this.ClientSize = new System.Drawing.Size(795, 313);
             this.Controls.Add(this.splitContainer1);
             this.DoubleBuffered = true;
             this.Icon = global::EAGamesLauncher.Properties.Resources.launcher_icon;
@@ -312,7 +301,6 @@
         private System.Windows.Forms.Button btnChooseModLocation;
         private System.Windows.Forms.Label lblCustomModLocation;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnSave;
     }
 }
 
